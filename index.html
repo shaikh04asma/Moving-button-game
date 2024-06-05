@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving Button Game</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+      #container {
+        position: relative;
+        width: 500px;
+        height: 600px;
+        margin: 5px;
+        overflow: hidden;
+        background: url(flowers-background-copy-space_23-2148015727.avif);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 20px;
+      }
+      .box {
+        width: 100%;
+        margin-top: 0 50px;
+        height: 600px;
+        position: relative;
+        /* border: 2px solid black; */
+        background-color: rgba(255, 255, 255, 0.215);
+        place-content: center;
+        padding: 90px;
+        padding-left: 100px;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      #yes {
+        background-color: rgb(252, 175, 188);
+        color: purple;
+        border: 2px solid purple;
+        width: 90px;
+        border-radius: 10px;
+        font-size: 25px;
+        padding: 8px;
+        cursor: pointer;
+        transition: top 0.5 left 0.5s;
+        margin-top: 20px;
+        margin-top: 50px;
+      }
+
+      #target {
+        position: absolute;
+        left: 200px;
+        background-color: rgb(252, 175, 188);
+        color: purple;
+        border: 2px solid purple;
+        text-align: center;
+        width: 90px;
+        border-radius: 10px;
+        font-size: 25px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: top 0.5 left 0.5s;
+        padding: 8px;
+        margin-left: 60px;
+        margin-top: 50px;
+      }
+      h1 {
+        font-size: 35px;
+        font-weight: bold;
+        color: #fff;
+        margin-left: 10px;
+        text-shadow: 3px 3px 5px hsl(300, 76%, 47%),
+          3px 3px 5px hsl(300, 100%, 85%);
+      }
+      
+      
+      
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="box">
+        <h1>Do You Love me ?</h1>
+         <button id="target">No!</button>
+         <button id="yes">Yes!</button>
+      </div>
+    </div>
+    <script>
+      const target = document.getElementById("target");
+      let yes = document.getElementById("yes");
+      yes.addEventListener("click", () => {
+        alert("I Love You Too Dear");
+      });
+      function moveTarget() {
+        const maxWidth = 400;
+        const maxHeight = 400;
+        const ranomX = Math.floor(Math.random() * maxWidth);
+        const ranomY = Math.floor(Math.random() * maxHeight);
+        target.style.left = ranomX + "px";
+        target.style.top = ranomY + "px";
+      }
+      target.addEventListener("mouseenter", function () {
+        moveTarget();
+      });
+    </script>
+  </body>
+</html>
